@@ -6,9 +6,9 @@ rule CrunchyRoll
         version = "1.0"
         creation_date = "2019-11-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-03-10"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies malware used in CrunchyRoll website hack."
@@ -17,8 +17,8 @@ rule CrunchyRoll
 
 
     strings:
-        $ = "C:\\Users\\Ben\\Desktop\\taiga-develop\\bin\\Debug\\Taiga.pdb" ascii wide
-        $ = "c:\\users\\ben\\source\\repos\\svchost\\Release\\svchost.pdb" ascii wide
+        $ = "C:\\Users\\Ben\\Desktop\\taiga-develop\\bin\\Debug\\Taiga.pdb"
+        $ = "c:\\users\\ben\\source\\repos\\svchost\\Release\\svchost.pdb"
 
     condition:
         any of them

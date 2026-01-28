@@ -8,7 +8,7 @@ rule IcedID_init_loader
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies IcedID (stage 1 and 2, initial loaders)."
@@ -29,7 +29,8 @@ rule IcedID_init_loader
         $x6 = "Cookie: __gads=" ascii wide
 
     condition:
-        2 of ($s*) or 3 of ($x*)
+        int16(0) == 0x5a4d
+        and 2 of ($s*) or 3 of ($x*)
 }
 
 rule IcedID_core_loader
@@ -42,7 +43,7 @@ rule IcedID_core_loader
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies IcedID core loader."

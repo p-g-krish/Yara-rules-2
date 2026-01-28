@@ -5,9 +5,9 @@ meta:
 	fingerprint = "8eea2d3d8d4e8ca6ef89d474232d1117e2a5a5b4c714b4c82493293f31e4f2c6"
 	version = "1.0"
 	first_imported = "2023-09-18"
-	last_modified = "2023-09-18"
+	last_modified = "2025-11-26"
 	status = "RELEASED"
-	sharing = "TLP:WHITE"
+	sharing = "TLP:CLEAR"
 	source = "BARTBLAZE"
 	author = "@bartblaze"
 	description = "Detects BroEx, a type of agressive adware."
@@ -18,7 +18,7 @@ meta:
 
 strings:
 	//PDB
-	$pdb = "I:\\Repository2\\test\\Project21\\event\\Release\\event.pdb" ascii wide
+	$pdb = "I:\\Repository2\\test\\Project21\\event\\Release\\event.pdb"
 	
 	//Mutants
 	$mut1 = "Global\\A6A161D8-150E-46A1-B7EC-18E4CB58C6D2" ascii wide
@@ -46,5 +46,5 @@ strings:
 
 condition:
 	uint16(0) == 0x5a4d and ($pdb or 2 of ($mut*) or all of ($browser*) 
-	or 2 of ($svc*) or $str_decode)
+	or 2 of ($svc*) or (any of ($mut*, $browser*, $svc*) and $str_decode))
 }

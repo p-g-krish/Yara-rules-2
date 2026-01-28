@@ -8,11 +8,12 @@ rule NLBrute
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies NLBrute, an RDP brute-forcing tool."
-        category = "HACKTOOL"
+        category = "MALWARE"
+        malware_type = "HACKTOOL"
 
     strings:
         $ = "SERVER:PORT@DOMAIN\\USER;PASSWORD" ascii wide

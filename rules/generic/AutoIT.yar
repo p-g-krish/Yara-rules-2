@@ -8,7 +8,7 @@ rule AutoIT_Compiled
         first_imported = "2021-12-30"
         last_modified = "2023-12-28"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies compiled AutoIT script (as EXE). This rule by itself does NOT necessarily mean the detected file is malicious."
@@ -36,9 +36,9 @@ rule AutoIT_Script
         version = "1.0"
         creation_date = "2020-09-01"
         first_imported = "2021-12-30"
-        last_modified = "2023-12-28"
+        last_modified = "2025-04-16"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies AutoIT script.  This rule by itself does NOT necessarily mean the detected file is malicious."
@@ -54,7 +54,7 @@ rule AutoIT_Script
         $ = ">>>AUTOIT SCRIPT<<<" ascii wide
         $ = "This is a third-party compiled AutoIt script." ascii wide
         $ = "AU3!EA06" ascii wide
-
+        $msi_magic = {D0 CF 11 E0 A1 B1 1A E1 00 00 00}
     condition:
-        uint16(0)!=0x5A4D and any of them
+        uint16(0)!=0x5A4D and not $msi_magic at 0 and any of them
 }

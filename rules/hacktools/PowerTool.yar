@@ -8,19 +8,19 @@ rule PowerTool
         version = "1.0"
         creation_date = "2021-07-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-07-24"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies PowerTool, sometimes used by attackers to disable security software."
-        category = "MALWARE"
-        malware = "POWERTOOL"
+        category = "TOOL"
+        tool = "POWERTOOL"
         reference = "https://www.softpedia.com/get/Antivirus/Removal-Tools/ithurricane-PowerTool.shtml"
 
 
     strings:
-        $ = "C:\\dev\\pt64_en\\Release\\PowerTool.pdb" ascii wide
+        $ = "C:\\dev\\pt64_en\\Release\\PowerTool.pdb"
         $ = "Detection may be stuck, First confirm whether the device hijack in [Disk trace]" ascii wide
         $ = "SuspiciousDevice Error reading MBR(Kernel Mode) !" ascii wide
         $ = "Modify kill process Bug." ascii wide

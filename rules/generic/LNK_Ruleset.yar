@@ -8,9 +8,9 @@ private rule isLNK
         version = "1.0"
         creation_date = "2020-01-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-11-14"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Private rule identifying shortcut (LNK) files. To be used in conjunction with the other LNK rules below."
@@ -33,7 +33,7 @@ rule PS_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies PowerShell artefacts in shortcut (LNK) files."
@@ -54,7 +54,7 @@ rule PS_in_LNK
         $ = "bypass" ascii wide nocase
 
     condition:
-        isLNK and any of them
+        isLNK and 2 of them
 }
 
 rule Script_in_LNK
@@ -67,7 +67,7 @@ rule Script_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies scripting artefacts in shortcut (LNK) files."
@@ -103,19 +103,15 @@ rule EXE_in_LNK
         version = "1.0"
         creation_date = "2020-01-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-02-16"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies executable artefacts in shortcut (LNK) files."
         category = "INFO"
 
     strings:
-        $ = ".exe" ascii wide nocase
-        $ = ".dll" ascii wide nocase
-        $ = ".scr" ascii wide nocase
-        $ = ".pif" ascii wide nocase
         $ = "This program" ascii wide nocase
         $ = "TVqQAA" ascii wide nocase
 
@@ -133,7 +129,7 @@ rule Archive_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies archive (compressed) files in shortcut (LNK) files."
@@ -169,7 +165,7 @@ rule Execution_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies execution artefacts in shortcut (LNK) files."
@@ -201,7 +197,7 @@ rule Compilation_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies compilation artefacts in shortcut (LNK) files."
@@ -225,7 +221,7 @@ rule Download_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies download artefacts in shortcut (LNK) files."
@@ -251,27 +247,30 @@ rule MSOffice_in_LNK
         version = "1.0"
         creation_date = "2020-01-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-02-16"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies Microsoft Office artefacts in shortcut (LNK) files."
         category = "INFO"
 
     strings:
-        $ = "winword" ascii wide nocase
-        $ = "excel" ascii wide nocase
-        $ = "powerpnt" ascii wide nocase
+        $ = ".docm" ascii wide nocase
+        $ = ".dotm" ascii wide nocase
+        $ = ".potm" ascii wide nocase
+        $ = ".ppsm" ascii wide nocase
+        $ = ".pptm" ascii wide nocase
         $ = ".rtf" ascii wide nocase
-        $ = ".doc" ascii wide nocase
-        $ = ".dot" ascii wide nocase
-        $ = ".xls" ascii wide nocase
+        $ = ".sldm" ascii wide nocase
+        $ = ".slk" ascii wide nocase
+        $ = ".wll" ascii wide nocase
         $ = ".xla" ascii wide nocase
-        $ = ".csv" ascii wide nocase
-        $ = ".ppt" ascii wide nocase
-        $ = ".pps" ascii wide nocase
-        $ = ".xml" ascii wide nocase
+        $ = ".xlam" ascii wide nocase
+        $ = ".xls" ascii wide nocase
+        $ = ".xlsm" ascii wide nocase
+        $ = ".xll" ascii wide nocase
+        $ = ".xltm" ascii wide nocase
 
     condition:
         isLNK and any of them
@@ -287,10 +286,10 @@ rule PDF_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
-        description = "Identifies Adobe Acrobat artefacts in shortcut (LNK) files."
+        description = "Identifies Adobe Acrobat artefacts in shortcut (LNK) files. A PDF document is typically used as decoy in a malicious LNK."
         category = "INFO"
 
     strings:
@@ -311,7 +310,7 @@ rule Flash_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies Adobe Flash artefacts in shortcut (LNK) files."
@@ -335,10 +334,11 @@ rule SMB_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         category = "INFO"
+        description = "Identifies SMB in shortcut (LNK) files"
 
     strings:
         $ = "\\c$\\" ascii wide nocase
@@ -356,16 +356,16 @@ rule Long_RelativePath_LNK
         version = "1.0"
         creation_date = "2020-01-01"
         first_imported = "2021-12-30"
-        last_modified = "2021-12-30"
+        last_modified = "2025-02-16"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies shortcut (LNK) file with a long relative path. Might be used in an attempt to hide the path."
         category = "INFO"
 
     strings:
-        $ = "..\\..\\..\\..\\" ascii wide nocase
+        $ = "..\\..\\..\\..\\..\\..\\" ascii wide nocase
 
     condition:
         isLNK and any of them
@@ -381,7 +381,7 @@ rule Large_filesize_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies shortcut (LNK) file larger than 100KB. Most goodware LNK files are smaller than 100KB."
@@ -401,7 +401,7 @@ rule High_Entropy_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies shortcut (LNK) file with equal or higher entropy than 6.5. Most goodware LNK files have a low entropy, lower than 6."
@@ -421,7 +421,7 @@ rule CDN_in_LNK
         first_imported = "2021-12-30"
         last_modified = "2021-12-30"
         status = "RELEASED"
-        sharing = "TLP:WHITE"
+        sharing = "TLP:CLEAR"
         source = "BARTBLAZE"
         author = "@bartblaze"
         description = "Identifies CDN (Content Delivery Network) domain in shortcut (LNK) file."
@@ -436,6 +436,29 @@ rule CDN_in_LNK
         $ = "akamai" ascii wide nocase
         $ = "cdn77" ascii wide nocase
         $ = "discordapp" ascii wide nocase
+
+    condition:
+        isLNK and any of them
+}
+
+rule WebDAV_in_LNK
+{
+    meta:
+        id = "1Be4RxPZQBGIyDOiKzgw"
+        fingerprint = "v1_sha256_ee6d3555011e9eec0b9724327fc17394c45f985249a5a3ce000cad505399a10b"
+        version = "1.0"
+        date = "2025-11-20"
+        modified = "2025-11-20"
+        status = "RELEASED"
+        sharing = "TLP:CLEAR"
+        source = "BARTBLAZE"
+        author = "@bartblaze"
+        description = "Identifies WebDAV in shortcut (LNK) file."
+        category = "INFO"
+
+    strings:
+        $ = "\\DavWWWRoot\\" ascii wide nocase
+        $ = "\\webdav\\" ascii wide nocase
 
     condition:
         isLNK and any of them
